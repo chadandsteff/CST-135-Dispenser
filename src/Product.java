@@ -1,10 +1,15 @@
 /**
-* Grand Canyon University 
+ * Grand Canyon University 
+ * CST-135
  * Brandon Bass
+ * 
  * Daniel"Thad"Dittmer
  * Chad Wierick
  * David Pratt
  * Zachary Swoveland
+ * 
+ * This is our main product class.  It has overloaded creation and generic/naked creation method
+ * copy method is also in place as are all relevant sets and gets
  */
 public class Product {
 	
@@ -19,7 +24,6 @@ public class Product {
 	private double price;
 	
 	
-	
 	public Product(String name, String brand, int quantity, int price, String productID) {
 		this.setProductID(productID);
 		this.setName(name);
@@ -28,8 +32,10 @@ public class Product {
 		this.setPrice(price);
 	}
 	
+
 	public Product() {
 		this.setProductID("none");
+		this.setBrand("default");
 		this.setName("default");
 		this.setQuantity(10);
 		this.setPrice(100);
@@ -69,6 +75,10 @@ public class Product {
 		this.Brand = brand;
 	}
 	
+	public String getBrand() {
+		return this.Brand;
+	}
+	
 	public void setPrice(int price) {
 		this.Price = price;
 	}
@@ -81,12 +91,14 @@ public class Product {
 	public String toString() {
 		return "\n"
 		+ getName()
-		+"\nPrice; " + getPrice()
-		+"\nBrand: " + getQuantity(Quantity);
+		+"\nPrice: " + getPrice()
+		+"\nBrand: " + getBrand()
+		+"\nQuantity: " + getQuantity()
+		+"\nProductID: " + getProductID();
 		
 	}
 
-	public int getQuantity(int Quantity) {
+	public int getQuantity() {
 		// returns quantity
 		return this.Quantity;
 	}
