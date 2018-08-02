@@ -46,3 +46,37 @@ public class Dispenser {
 	}
 
 }
+
+	//I created this method to just fill the dispenser with some stuff in order to display
+	// it in the displayProducts method
+	public static Product[][] fillDispenser() {
+		Product[][] productGrid = new Product[5][5];
+		for (int i = 0; i < productGrid.length; i++){
+			for (int j = 0; j < productGrid[0].length; j++){
+				productGrid[i][j] = new Product();
+			}
+		}
+		return productGrid;
+	}
+
+	//This method takes in a product grid and spits out the toString of each product contained therein
+	public static void displayProducts(Product[][] productGrid) {
+		for (int i = 0; i < productGrid.length; i++){
+			for (int j = 0; j < productGrid[0].length; j++){
+				System.out.println(productGrid[i][j].toString());
+			}
+		}
+	}
+
+}
+
+/* possible changes:
+
+I could make the products array a 3D array. This would allow us to have a row column access system but the third
+dimension could allow for us to track quantity that way instead of using quantity as a variable inside the object
+I wold be willing to update the code to reflect this change but it's totally up to you guys. I'm not sure what we want
+to do and how in depth we want to go with this.
+
+
+-- David Pratt Jr.
+ */
