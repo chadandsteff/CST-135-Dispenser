@@ -11,7 +11,7 @@
  * This is our main product class.  It has overloaded creation and generic/naked creation method
  * copy method is also in place as are all relevant sets and gets
  */
-public class Product {
+public class Product implements Comparable {
 	
 	String ProductID;
 	int Product;
@@ -22,6 +22,42 @@ public class Product {
     
     private String name;
 	private double price;
+	
+	public boolean compareTo(Product b) {
+		boolean aGoesAboveB = false;
+		String aName = this.getName();
+		String bName = b.getName();
+		int aPrice = this.getPrice();
+		int bPrice = b.getPrice();
+		
+		/** 
+		 * 	these are used to see what is going on insite the method
+		 * 	System.out.println();
+		 *	System.out.println("What is being compared in compareTo");
+		 *	System.out.println(aName);
+		 *	System.out.println(aPrice);
+		 * 	System.out.println(bName);
+		 *	System.out.println(bPrice);
+		 *	System.out.println();
+		 *	System.out.println(aName.compareToIgnoreCase(bName));
+		*/ 
+		if(aName == bName) {
+			if (aPrice >= bPrice) {
+				aGoesAboveB = true;
+
+			} else {
+				// a and b are identically named, but a is more expensive.  Thus we don't need to do anything
+			}
+		} else {
+			// names are different, this is a pure alpha sort.
+			if(aName.compareToIgnoreCase(bName) < 0) {
+				
+			} else {
+				aGoesAboveB = true;
+			}
+		}
+		return aGoesAboveB;
+	}
 	
 	
 	public Product(String name, String brand, int quantity, int price, String productID) {
@@ -101,11 +137,6 @@ public class Product {
 	public int getQuantity() {
 		// returns quantity
 		return this.Quantity;
-	}
-
-	public int compareTo(Product arg0) {
-		// for future
-		return 0;
 	}
 
 	public void changeQuantity(int quantity) {
